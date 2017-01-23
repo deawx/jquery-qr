@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> jQuery QR </title>
+        <link rel="canonical" href="http://sizeof.cat/jquery/qr/">
+        <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+    </head>
+
+<body class="theme-base-0g">
+
+    <div class="wrap">
+        <div class="masthead">
+            <div class="container">
+                <h3 class="masthead-title">
+                    <a href="http://sizeof.cat/" title="Home">Home</a> &raquo; 
+                    <a href="http://sizeof.cat/jquery" title="jQuery plugins">jQuery</a> &raquo;
+                    jQuery QR
+                </h3>
+            </div>
+        </div>
+        <div class="container content">
+            <h1 class="post-title">jQuery QR</h1>
+            <section id="main">
+                <p>This <a href="http://www.jquery.com">jQuery</a> plugin enables you to embed QR codes into your applications or web pages.</p>
+
+<p>QR codes are a popular type of two-dimensional barcode. They are also known as hardlinks or physical world hyperlinks. QR codes store up to 4,296 alphanumeric characters of arbitrary text.</p>
+
+<p></p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Language</td>
+<td>Javascript</td>
+</tr>
+
+<tr>
+<td>License</td>
+<td><a href="https://github.com/sizeofcat/jquery-qr/blob/master/LICENSE">MIT</a></td>
+</tr>
+
+<tr>
+<td>Version</td>
+<td>2.0.0</td>
+</tr>
+
+<tr>
+<td>Release date</td>
+<td>January 18, 2017</td>
+</tr>
+
+<tr>
+<td>Download</td>
+<td><a href="https://github.com/sizeofcat/jquery-qr/archive/master.zip">zip archive</a></td>
+</tr>
+
+<tr>
+<td>Source</td>
+<td><code>git clone https://github.com/sizeofcat/jquery-qr.git</code></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="setup">Setup</h2>
+
+<p>First you need to include the jQuery library, since QR is a plugin. You can download it from the jQuery website or link it directly from the Google CDN.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
+
+<p>Secondly, you need to include the jQuery QR javascript file into your page. You can do it by adding the code below to your page.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;js/jquery-qr.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+
+
+<p>Now, you have two possibilities of embedding a QR code.</p>
+
+<h3 id="1">1.</h3>
+
+<p>Create the image tag that will be replaced with the QR code image.</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span></span><span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;#&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;qr1&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="p">/&gt;</span>
+</code></pre></div>
+
+
+<p>For the last part you activate the <em>catQR()</em> function on the element you just created, so, we trigger the function on the image with the id <em>qr1</em>.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#qr1&quot;</span><span class="p">).</span><span class="nx">catQR</span><span class="p">({</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;This is the text to embed&#39;</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<h3 id="2">2.</h3>
+
+<p>Add a div with a specific id to your page, for example:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;qr2&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+
+<p>We trigger the function on the div with the id <em>qr2</em> AND we add the <code>create: true</code> option, which signals the library to create the image tag inside the container div.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#qr2&quot;</span><span class="p">).</span><span class="nx">catQR</span><span class="p">({</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;This is the text to embed&#39;</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<h2 id="settings">Settings</h2>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>size</td>
+<td>230</td>
+<td>Size of the QR code. Can be omitted.</td>
+</tr>
+
+<tr>
+<td>encoding</td>
+<td>&lsquo;UTF-8&rsquo;</td>
+<td>Encoding of the QR. Can be omitted, could be one of: <em>UTF-8</em>, <em>Shift_JIS</em> or <em>ISO-8859-1</em>.</td>
+</tr>
+
+<tr>
+<td>type</td>
+<td>&lsquo;text&rsquo;</td>
+<td>QR type. Can be: <em>text</em>, <em>url</em>, <em>sms</em>, <em>email</em>, <em>call</em>, <em>location</em>, <em>wifi</em> or <em>contact</em>.</td>
+</tr>
+
+<tr>
+<td>create</td>
+<td>false</td>
+<td>Whether the plugin will create an image tag inside the container or just replace the src of an already existing image tag.</td>
+</tr>
+
+<tr>
+<td>text</td>
+<td></td>
+<td>The text to encode in the QR. Only needed for text, email or sms QR codes.</td>
+</tr>
+
+<tr>
+<td>number</td>
+<td></td>
+<td>The phone number if you want to create a sms or call QR code.</td>
+</tr>
+
+<tr>
+<td>email</td>
+<td></td>
+<td>The email address in case you want to create an email QR code.</td>
+</tr>
+
+<tr>
+<td>subject</td>
+<td></td>
+<td>The subject in case you want to create an email QR code.</td>
+</tr>
+
+<tr>
+<td>latitude</td>
+<td></td>
+<td>The geographical latitude for the geolocation QR code.</td>
+</tr>
+
+<tr>
+<td>longitude</td>
+<td></td>
+<td>The geographical longitude for the geolocation QR code.</td>
+</tr>
+
+<tr>
+<td>address</td>
+<td></td>
+<td>The home address in case you want to create a contact QR code.</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td></td>
+<td>The name of the person in case you want to create a contact QR code.</td>
+</tr>
+
+<tr>
+<td>url</td>
+<td></td>
+<td>The URL address in case you want to create an url or contact QR code.</td>
+</tr>
+
+<tr>
+<td>alt</td>
+<td></td>
+<td>The alt code for the created/replaced image. Can be omitted.</td>
+</tr>
+
+<tr>
+<td>note</td>
+<td></td>
+<td>A note in case you want to create a contact QR code.</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="demo">Demo</h2>
+
+<div class="qrcode1"></div>
+
+<p>Code:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.qrcode1&#39;</span><span class="p">).</span><span class="nx">catQR</span><span class="p">({</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;text&#39;</span><span class="p">,</span>
+    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Welcome to jQuery QR!&#39;</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<div class="qrcode2"></div>
+
+<p>Code:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.qrcode2&#39;</span><span class="p">).</span><span class="nx">catQR</span><span class="p">({</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;location&#39;</span><span class="p">,</span>
+    <span class="nx">size</span><span class="o">:</span> <span class="mi">180</span><span class="p">,</span>
+    <span class="nx">latitude</span><span class="o">:</span> <span class="s1">&#39;48.437711&#39;</span><span class="p">,</span>
+    <span class="nx">longitude</span><span class="o">:</span> <span class="s1">&#39;28.097367&#39;</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<div class="qrcode3"></div>
+
+<p>Code:</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span></span><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.qrcode3&#39;</span><span class="p">).</span><span class="nx">catQR</span><span class="p">({</span>
+    <span class="nx">create</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">size</span><span class="o">:</span> <span class="mi">180</span><span class="p">,</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;call&#39;</span><span class="p">,</span>
+    <span class="nx">number</span><span class="o">:</span> <span class="s1">&#39;+447455357&#39;</span>
+<span class="p">});</span>
+</code></pre></div>
+
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery-qr.js"></script>
+<script>
+$(document).ready(function() {
+    $('.qrcode1').catQR({
+        create: true,
+        type: 'text',
+        text: 'Welcome to jQuery QR!'
+    });
+    $('.qrcode2').catQR({
+        create: true,
+        size: 180,
+        type: 'location',
+        latitude: '48.437711',
+        longitude: '28.097367'
+    });
+    $('.qrcode3').catQR({
+        create: true,
+        size: 180,
+        type: 'call',
+        number: '+447455357'
+    });
+});
+</script>
+            </section>
+        </div>
+    </div>
+    <br />
+            <div class="container content">
+            <footer>
+                <div>
+                    <p class="right credit">&copy;  <a href="http://sizeof.cat/">sizeof.cat</a> - powered by <a href="https://gohugo.io/">Hugo</a> and hosted via <a href="http://pages.github.com/">GitHub Pages</a>.</p>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
+
